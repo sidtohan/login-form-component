@@ -11,7 +11,7 @@ const LoginFormComponent = ({}) => {
   const handleLogin = (e) => {
     e.preventDefault();
     // Contains the logic for api fetch and checking it
-    axios.post("http://localhost:8000/login-user", {email: email, password: password}).then((response) => {
+    axios.post("https://adding-nfts.herokuapp.com/login-user", {email: email, password: password}).then((response) => {
       var data  = response.data;
       setToken(data.token);
       console.log(data.token);
@@ -75,7 +75,7 @@ const LoginFormComponent = ({}) => {
     }
   }
 
-  axios.post("http://localhost:8000/update-user-wallet", {email: email, newWallet: accounts[0]}, config).then((response) => {
+  axios.post("https://adding-nfts.herokuapp.com/update-user-wallet", {email: email, newWallet: accounts[0]}, config).then((response) => {
     alert(response.data.message)
   }).catch((error) => {
     alert(error.message)
